@@ -23,7 +23,7 @@ If you use this code, please cite our paper:
 }
 ```
 
-### Model Architecture
+## Model Architecture
 ![](figs/dual_view_model_architecture.png)
 
 ## Dependencies
@@ -35,11 +35,11 @@ Please refer to the requirements.txt for the full dependencies.
 
 
 ## Datasets
-We use the Sports and Outdoors, Toys and Games, Home and Kitchen, Movies and TV datasets from from 5-core subsets of the Amazon review corpus. If you use their data, please cite their papers as well. 
+We use the **Sports and Outdoors**, **Toys and Games**, **Home and Kitchen**, **Movies and TV** datasets from from 5-core subsets of the [Amazon review corpus](http://jmcauley.ucsd.edu/data/amazon/). If you use their data, please cite their papers as well. 
 
 ## Data Preprocessing
 
-- Download Stanford CoreNLP English from https://stanfordnlp.github.io/CoreNLP/history.html
+- Download Stanford CoreNLP English version from https://stanfordnlp.github.io/CoreNLP/history.html
 
 - First, you need to run a corenlp server on the same server. cd to the directory of the standford corenlp. Then execute `java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -preload tokenize,ssplit -status_port 9000 -port 9000 -timeout 60000`.
 
