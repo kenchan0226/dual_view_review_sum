@@ -27,6 +27,7 @@ If you use this code, please cite our paper:
 ![](figs/dual_view_model_architecture.png)
 
 ## Dependencies
+- Python 3.6+
 - Pytorch 1.1
 - NLTK
 - pyrouge
@@ -64,9 +65,6 @@ It will create five vocab pickle files in the `-data_dir` for each rating score:
 
 - Script for training a word2vec embedding on the training set: 
 `python3 train_word2vec.py -data datasets/processed_reviews_Sports_and_Outdoors_5 -path word_embeddings/sport_and_outdoors -dim 128`
-
-- Script for training a hss model on the full sports_and_outdoors dataset
-`python3 train_ml.py -data /research/king3/ik_grp/wchen/amazon_review_data/processed_reviews_Sports_and_Outdoors_5 -exp_path exp/%s.%s -model_path /research/king3/ik_grp/wchen/senti_summ_models/saved_model/%s.%s -exp train_ml_baseline_sport_dataset_hidden_size_512_seed_9527 -epochs 50 -copy_attention -batch_size 32 -seed 9527 -w2v /research/king3/ik_grp/wchen/senti_summ_models/word_embeddings/sport_and_outdoors/word2vec.128d.39k.bin -v_size 50000 -word_vec_size 128 -encoder_size 256 -decoder_size 512`
 
 - Scripts for training our dual-view model with inconsistency loss
 ```
@@ -112,9 +110,9 @@ python3 train_ml.py \
 
 - Run predict, specify the path to the best checkpoint (lowest validation loss) in the `-pretrained_model` argument. 
 ```
-/research/king3/hpchan/anaconda3/envs/summ_sentiment/bin/python3 -u predict.py \
+python predict.py \
 -data datasets/processed_reviews_Sports_and_Outdoors_5 \
--pred_path /research/king3/ik_grp/wchen/senti_summ_outputs/pred/%s.%s \
+-pred_path pred/%s.%s \
 -exp predict_dual_view_inc_seed_250 \
 -pretrained_model saved_model/train_movie_dual_view_inc_seed_250.ml.copy.bi-directional.20191212-154843/ckpt/train_movie_dual_view_inc_seed_250.ml.copy.bi-directional-epoch-2-total_batch-75000-joint-2.640 \
 -seed 9527 \
