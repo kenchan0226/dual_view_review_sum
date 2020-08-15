@@ -49,10 +49,10 @@ We use the **Sports and Outdoors**, **Toys and Games**, **Home and Kitchen**, **
 
 
 - Split the data into train, valid, test. Remove too long and too short review and summary
-`python3 preprocess_raw_review.py -raw_data_file reviews_Sports_and_Outdoors_5_tokenized.json -out_dir datasets/processed_reviews_Sports_and_Outdoors_5 -num_valid 9000 -num_test 9000 -is_shuffle`
-`python3 preprocess_raw_review.py -raw_data_file reviews_Toys_and_Games_5_tokenized.json -out_dir datasets/processed_reviews_Toys_and_Games_5 -num_valid 8000 -num_test 8000 -is_shuffle`
-`python3 preprocess_raw_review.py -raw_data_file reviews_Home_and_Kitchen_5_tokenized.json -out_dir datasets/processed_reviews_ome_and_Kitchen_5 -num_valid 10000 -num_test 10000 -is_shuffle`
-`python3 preprocess_raw_review.py -raw_data_file reviews_Movies_and_TV_5_tokenized.json -out_dir datasets/processed_reviews_Movies_and_TV_5 -num_valid 20000 -num_test 20000 -is_shuffle`
+`python3 preprocess_raw_review.py -raw_data_file reviews_Sports_and_Outdoors_5_tokenized.json -out_dir datasets/processed_reviews_Sports_and_Outdoors_5 -num_valid 9000 -num_test 9000 -is_shuffle -min_review_len 16 -min_summary_len 4`
+`python3 preprocess_raw_review.py -raw_data_file reviews_Toys_and_Games_5_tokenized.json -out_dir datasets/processed_reviews_Toys_and_Games_5 -num_valid 8000 -num_test 8000 -is_shuffle -min_review_len 16 -min_summary_len 4`
+`python3 preprocess_raw_review.py -raw_data_file reviews_Home_and_Kitchen_5_tokenized.json -out_dir datasets/processed_reviews_ome_and_Kitchen_5 -num_valid 10000 -num_test 10000 -is_shuffle -min_review_len 16 -min_summary_len 4`
+`python3 preprocess_raw_review.py -raw_data_file reviews_Movies_and_TV_5_tokenized.json -out_dir datasets/processed_reviews_Movies_and_TV_5 -num_valid 20000 -num_test 20000 -is_shuffle -min_review_len 16 -min_summary_len 4`
 
 - Compute and export the class distribution on the training set
 `python3 compute_rating_stat.py -data_dir datasets/processed_reviews_Sports_and_Outdoors_5 -split train`
