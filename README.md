@@ -36,30 +36,41 @@ Please refer to the requirements.txt for the full dependencies.
 
 
 ## Datasets
-We use the **Sports and Outdoors**, **Toys and Games**, **Home and Kitchen**, **Movies and TV** datasets from from 5-core subsets of the [Amazon review corpus](http://jmcauley.ucsd.edu/data/amazon/). If you use their data, please cite their papers as well. 
+We use the **Sports and Outdoors**, **Toys and Games**, **Home and Kitchen**, **Movies and TV** datasets from from 5-core subsets of the [Amazon review corpus](http://jmcauley.ucsd.edu/data/amazon/) by Prof. Julian McAuley.
 
-## Data Preprocessing
+The followings are the URLs of our preprocessed versions of these datasets. 
+https://www.dropbox.com/s/2b5ueuj6bqpfyvh/min_4_reviews_Sports_and_Outdoors_5.tar.gz?dl=0
+https://www.dropbox.com/s/bf1im78iz0cvpta/min_4_Toys_and_Games_5.tar.gz?dl=0
+https://www.dropbox.com/s/52wyjfz1xz4oeb4/min_4_Home_and_Kitchen_5.tar.gz?dl=0
+https://www.dropbox.com/s/a17hub5m1osdukw/min_4_Movies_and_TV_5.tar.gz?dl=0
 
-- Download Stanford CoreNLP English version from https://stanfordnlp.github.io/CoreNLP/history.html
+If you use these datasets, **Please cite one or both of the following papers**:
 
-- First, you need to run a corenlp server on the same server. cd to the directory of the standford corenlp. Then execute `java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -preload tokenize,ssplit -status_port 9000 -port 9000 -timeout 60000`.
+```
+Ups and downs: Modeling the visual evolution of fashion trends with one-class collaborative filtering
+R. He, J. McAuley
+WWW, 2016
 
-- Open another terminal and execute the following command. It will create a file called `reviews_Sports_and_Outdoors_5_tokenized.json`. 
+Image-based recommendations on styles and substitutes
+J. McAuley, C. Targett, J. Shi, A. van den Hengel
+SIGIR, 2015
+```
+
+
+<!--
+Data Preprocessing
+Download Stanford CoreNLP English version from https://stanfordnlp.github.io/CoreNLP/history.html
+First, you need to run a corenlp server on the same server. cd to the directory of the standford corenlp. Then execute `java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -preload tokenize,ssplit -status_port 9000 -port 9000 -timeout 60000`.
+Open another terminal and execute the following command. It will create a file called `reviews_Sports_and_Outdoors_5_tokenized.json`. 
 `python3 tokenize_raw_review.py -raw_data_file reviews_Sports_and_Outdoors_5.json`
-
-
-- Split the data into train, valid, test. Remove too long and too short review and summary
+Split the data into train, valid, test. Remove too long and too short review and summary
 `python3 preprocess_raw_review.py -raw_data_file reviews_Sports_and_Outdoors_5_tokenized.json -out_dir datasets/processed_reviews_Sports_and_Outdoors_5 -num_valid 9000 -num_test 9000 -is_shuffle -min_review_len 16 -min_summary_len 4`
 `python3 preprocess_raw_review.py -raw_data_file reviews_Toys_and_Games_5_tokenized.json -out_dir datasets/processed_reviews_Toys_and_Games_5 -num_valid 8000 -num_test 8000 -is_shuffle -min_review_len 16 -min_summary_len 4`
 `python3 preprocess_raw_review.py -raw_data_file reviews_Home_and_Kitchen_5_tokenized.json -out_dir datasets/processed_reviews_ome_and_Kitchen_5 -num_valid 10000 -num_test 10000 -is_shuffle -min_review_len 16 -min_summary_len 4`
 `python3 preprocess_raw_review.py -raw_data_file reviews_Movies_and_TV_5_tokenized.json -out_dir datasets/processed_reviews_Movies_and_TV_5 -num_valid 20000 -num_test 20000 -is_shuffle -min_review_len 16 -min_summary_len 4`
-
-- Compute and export the class distribution on the training set
+Compute and export the class distribution on the training set
 `python3 compute_rating_stat.py -data_dir datasets/processed_reviews_Sports_and_Outdoors_5 -split train`
-
-## Build Rating and Vocabulary
-It will create five vocab pickle files in the `-data_dir` for each rating score: `rating_1_vocab_counter.pkl`, `rating_2_vocab_counter.pkl`, ...
-`python3 find_rating_vocab.py -data_dir datasets/processed_reviews_Sports_and_Outdoors_5 -split train`
+-->
 
 ## Training
 
