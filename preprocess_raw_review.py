@@ -149,7 +149,7 @@ if __name__ == "__main__":
                         help='Randomly shuffle the training data.')
     parser.add_argument('-seed', type=int, action='store', default=9527,
                         help='random seed.')
-    parser.add_argument('-min_review_len', type=int, action='store', default=11,
+    parser.add_argument('-min_review_len', type=int, action='store', default=16,
                         help='Minimum tokens in review.')
     parser.add_argument('-min_summary_len', type=int, action='store', default=4,
                         help='Minimum tokens in summar.')
