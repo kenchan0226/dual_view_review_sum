@@ -74,6 +74,9 @@ Compute and export the class distribution on the training set
 
 ## Training
 
+- Compute and export the class distribution on the training set, which will be used by the training script. 
+`python3 compute_rating_stat.py -data_dir datasets/processed_reviews_Sports_and_Outdoors_5 -split train`
+
 - Script for training a word2vec embedding on the training set: 
 `python3 train_word2vec.py -data datasets/processed_reviews_Sports_and_Outdoors_5 -path word_embeddings/sport_and_outdoors -dim 128`
 
