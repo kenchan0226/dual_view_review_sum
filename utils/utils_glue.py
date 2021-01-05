@@ -588,7 +588,7 @@ def acc_and_macro_f1(preds, labels):
 
 
 def balanced_acc_and_macro_f1(preds, labels):
-    acc = balanced_accuracy_score(preds, labels)
+    acc = balanced_accuracy_score(y_true=labels, y_pred=preds)
     f1 = f1_score(y_true=labels, y_pred=preds, average='macro')
     return {
         "acc": acc,
