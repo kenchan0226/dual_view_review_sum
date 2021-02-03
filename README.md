@@ -2,6 +2,8 @@
 
 This repository contains the source code for our SIGIR 2020 paper "[A Unified Dual-view Model for Review Summarization and Sentiment Classification with Inconsistency Loss](https://arxiv.org/abs/2006.01592)". 
 
+**Important Notice: We found a bug in our evaluation function for the balanced accuracy score. We have updated the code and the results in our paper (Table 3) on Arxiv. Please make sure thst you are using the most updated version of our code. Our apologies for the inconvenience caused.**
+
 Some of our source code are adapted from https://github.com/ChenRocks/fast_abs_rl. 
 
 If you use this code, please cite our paper:
@@ -16,7 +18,7 @@ If you use this code, please cite our paper:
                Event, China, July 25-30, 2020},
   pages     = {1191--1200},
   year      = {2020},
-  url       = {https://doi.org/10.1145/3397271.3401039},
+  url       = {https://arxiv.org/abs/2006.01592},
   doi       = {10.1145/3397271.3401039},
   biburl    = {https://dblp.org/rec/conf/sigir/ChanCK20.bib},
   bibsource = {dblp computer science bibliography, https://dblp.org}
